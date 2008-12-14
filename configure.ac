@@ -1,10 +1,10 @@
 dnl configure.in for uptimed
 
-AC_INIT(src)
+AC_INIT([uptimed], 0.3.12)
 AM_CONFIG_HEADER(config.h)
 AC_PROG_CC
 AM_PROG_LIBTOOL
-AM_INIT_AUTOMAKE(uptimed, 0.3.13)
+AM_INIT_AUTOMAKE
 
 case "$host" in
   *-linux*)
