@@ -20,22 +20,12 @@ records, which can also easily be used to show your records on a web page.
 
 You can always get the latest release from the Uptimed website:
 
-http://podgorny.cz/uptimed/
+http://genebean.github.com/uptimed/
 
 3. Mailinglists
 ===============
 
-There is a (low-traffic) mailinglist for Uptimed release announcements or
-general discussion of the program.
-
-To subscribe, send e-mail to: uptimed-friends-subscribe@lists.capsi.com
-To post, send e-mail to: uptimed-friends@lists.capsi.com
-
-There are similar lists uptimed-devel for development issues and
-uptimed-cvs for notifications of changes in the CVS tree. For more
-information, check out:
-
-http://unixcode.org/uptimed/mailinglists.html (probably abandoned)
+It seems all the old lists have died off...
 
 4. Acknowledgments
 ==================
@@ -51,5 +41,9 @@ For a list of contributors to Uptimed, please read the CREDITS file.
 5. Contacting the author/maintainer
 ===================================
 
-Suggestions, questions, comments, bugfixes, patches: <radek@podgorny.cz>
-Original maintainer and author: Rob Kaper <rob@unixcode.org>
+If you would like to submit bugfixes or patches please 
+	1) fork the uptimed repositry at https://github.com/genebean/uptimed
+	2) make your changes in the fork
+	3) submit a pull request
+
+If you have suggestions, questions, or comments please see the project home page at http://genebean.github.com/uptimed/ 
