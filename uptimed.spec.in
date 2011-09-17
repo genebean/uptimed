@@ -1,14 +1,15 @@
-%define release	1
-
 Summary:	A daemon to record and keep track of system uptimes
-Name:	@PACKAGE@
-Version:	@VERSION@
-Release:	%{release}
-License:	GPL
-Group:	System Environment/Daemons
-Source:	http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
-BuildRoot:	/var/tmp/%{name}-%{version}-buildroot
-PreReq:	chkconfig >= 0.9
+Name:		uptimed
+Version:	0.3.17
+Release:	0.1
+License:	GPLv2
+Group:		System Environment/Daemons
+Source:		https://github.com/genebean/uptimed/blob/gh-pages/releases/%{name}-%{version}-%{release}.tar.gz
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
+Requires:	chkconfig >= 0.9
 
 %description
 Uptimed is an uptime record daemon keeping track of the highest 
@@ -23,6 +24,7 @@ records on your Web page
 
 %prep
 %setup -q
+autoreconf -ivf
 
 %build
 %configure
@@ -86,6 +88,11 @@ rm -rf "$RPM_BUILD_ROOT"
 %{_libdir}/libuptimed.*
 
 %changelog
+* Sat Sep 17 2011 Gene Liverman <gliverman@gmail.com>
+- Changed source location
+- Changed license to match what is actually in the source
+- Changed version and release to 0.3.17-0.1
+
 * Tue May 14 2002 Brett Pemberton <generica@email.com>
 - Reset release to 0 for uptimed-2.0
 - Change source location

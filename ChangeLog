@@ -1,3 +1,9 @@
+0.3.17-0.1
+----------
+
+- Fixed uptimed.spec.in and rc.uptimed for CentOS 6
+- This is the first version since forking to GitHub
+
 0.3.16
 ------
 

@@ -17,7 +17,10 @@ then
 	START="daemon $UPTIMED"
 	STOP="killproc $UPTIMED"
 	STATUS="status $UPTIMED"
-	CREATEBOOTID="action $\"Creating unique bootid for $NAME:\" $UPTIMED -b"
+
+	## CREATEBOOTID move lower in file due to this var not being processed correctly on CentOS 6
+	# CREATEBOOTID="action $\"Creating unique bootid for $NAME:\" $UPTIMED -b"
+
 	POST="echo"
 elif [ -f /sbin/start-stop-daemon ]
 then
@@ -60,7 +63,13 @@ showstatus()
 
 createbootid()
 {
-	$CREATEBOOTID
+	if [ -f /etc/rc.d/init.d/functions ]
+	then
+	        # Redhat and CentOS
+        	action $"Creating unique bootid for $NAME:" $UPTIMED -b
+	else
+		$CREATEBOOTID
+	fi
 	RETVAL=$?
 	$POST
 }
