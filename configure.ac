@@ -5,6 +5,7 @@ AM_CONFIG_HEADER(config.h)
 AC_PROG_CC
 AM_PROG_LIBTOOL
 AM_INIT_AUTOMAKE
+AC_CONFIG_MACRO_DIR([m4])
 
 case "$host" in
   *-linux*)

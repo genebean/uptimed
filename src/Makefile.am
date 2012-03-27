@@ -14,4 +14,4 @@ noinst_HEADERS = uprecords.h uptimed.h
 EXTRA_DIST = getopt.c getopt.h
   
 uptimed.o uprecords.o:
-CFLAGS = @CFLAGS@ -DFILE_CONFIG=\"$(sysconfdir)/uptimed.conf\"
+AM_CFLAGS = @CFLAGS@ -DFILE_CONFIG=\"$(sysconfdir)/uptimed.conf\"

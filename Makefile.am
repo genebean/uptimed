@@ -8,6 +8,8 @@ EXTRA_DIST = CREDITS INSTALL.cgi INSTALL.upgrade README.unsupported \
 
 AM_CFLAGS = @CFLAGS@ -DFILE_CONFIG=\"$(sysconfdir)/uptimed.conf\"
 
+ACLOCAL_AMFLAGS=-I m4
+
 install-data-local:
 	$(INSTALL) -d $(DESTDIR)/var/spool/uptimed
 

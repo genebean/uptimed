@@ -1,13 +1,14 @@
 Summary:	A daemon to record and keep track of system uptimes
 Name:		uptimed
 Version:	0.3.17
-Release:	0.1
+Release:	0.2
 License:	GPLv2
 Group:		System Environment/Daemons
 Source:		https://github.com/genebean/uptimed/blob/gh-pages/releases/%{name}-%{version}-%{release}.tar.gz
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
+BuildRequires:	m4
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 Requires:	chkconfig >= 0.9
 
@@ -88,6 +89,14 @@ rm -rf "$RPM_BUILD_ROOT"
 %{_libdir}/libuptimed.*
 
 %changelog
+* Tue Mar 27 2012 Gene Liverman <gliverman@gmail.com>
+- Based on output from autoreconf -ivf I made the following changes:
+- Added BuildRequire m4 to uptime.spec.in
+- Created directory m4
+- Added `AC_CONFIG_MACRO_DIR([m4])' to configure.ac
+- Added `-I m4' to ACLOCAL_AMFLAGS in Makefile.am
+- Changed src/Makefile.am:17: `CFLAGS' to `AM_CFLAGS'
+
 * Sat Sep 17 2011 Gene Liverman <gliverman@gmail.com>
 - Changed source location
 - Changed license to match what is actually in the source
