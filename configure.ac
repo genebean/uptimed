@@ -40,7 +40,7 @@ esac
 AC_REPLACE_FUNCS(getopt)
 AC_CHECK_HEADERS(getopt.h)
 
-AC_OUTPUT([Makefile libuptimed/Makefile src/Makefile man/Makefile etc/Makefile uptimed.spec])
+AC_OUTPUT([Makefile libuptimed/Makefile src/Makefile man/Makefile etc/Makefile])
 
 echo ""
 echo "--- Now type \"gmake\" to build Uptimed ---"
