@@ -1,7 +1,7 @@
 Summary:	A daemon to record and keep track of system uptimes
 Name:		uptimed
 Version:	0.3.17
-Release:	0.2
+Release:	0.3
 License:	GPLv2
 Group:		System Environment/Daemons
 Source:		https://github.com/downloads/genebean/uptimed/%{name}-%{version}-%{release}.tar.gz
@@ -24,7 +24,7 @@ parse the records, which can also easily be used to show your
 records on your Web page
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{version}-%{release}
 autoreconf -ivf
 
 %build
@@ -32,13 +32,13 @@ autoreconf -ivf
 make RPM_OPT_FLAGS="$RPM_OPT_FLAGS"
 
 %install
-rm -rf "$RPM_BUILD_ROOT"
-make DESTDIR="$RPM_BUILD_ROOT" install
-install -m 755 -d $RPM_BUILD_ROOT/%_docdir/%{name}-%{version}/sample-cgi
-install -m 644 sample-cgi/uprecords.* $RPM_BUILD_ROOT/%_docdir/%{name}-%{version}/sample-cgi
-install -m 755 -d $RPM_BUILD_ROOT/etc/rc.d/init.d
-install -m 755 etc/rc.uptimed $RPM_BUILD_ROOT/etc/rc.d/init.d/uptimed
-mv $RPM_BUILD_ROOT/etc/uptimed.conf-dist $RPM_BUILD_ROOT/etc/uptimed.conf
+rm -rf %{buildroot}
+make DESTDIR=%{buildroot} install
+install -m 755 -d %{buildroot}/%_docdir/%{name}-%{version}/sample-cgi
+install -m 644 sample-cgi/uprecords.* %{buildroot}/%_docdir/%{name}-%{version}/sample-cgi
+install -m 755 -d %{buildroot}/etc/rc.d/init.d
+install -m 755 etc/rc.uptimed %{buildroot}/etc/rc.d/init.d/uptimed
+mv %{buildroot}/etc/uptimed.conf-dist $RPM_BUILD_ROOT/etc/uptimed.conf
 
 %post
 /sbin/ldconfig
@@ -76,7 +76,7 @@ echo
 fi
 
 %clean
-rm -rf "$RPM_BUILD_ROOT"
+rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
@@ -89,6 +89,11 @@ rm -rf "$RPM_BUILD_ROOT"
 %{_libdir}/libuptimed.*
 
 %changelog
+* Tue Mar 27 2012 Gene Liverman <gliverman@gmail.com> - 0.3.17-0.3
+- Replaced uptime.spec.in with uptime.spec
+- Replaced $RPM_BUILD_ROOT with %{buildroot} throughout uptime.spec
+- Fixed prep section so that it knows how the tarball unpacks.
+
 * Tue Mar 27 2012 Gene Liverman <gliverman@gmail.com>
 - Based on output from autoreconf -ivf I made the following changes:
 - Added BuildRequire m4 to uptime.spec.in
