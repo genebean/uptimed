@@ -4,7 +4,7 @@ Version:	0.3.17
 Release:	0.2
 License:	GPLv2
 Group:		System Environment/Daemons
-Source:		https://github.com/genebean/uptimed/blob/gh-pages/releases/%{name}-%{version}-%{release}.tar.gz
+Source:		https://github.com/downloads/genebean/uptimed/%{name}-%{version}-%{release}.tar.gz
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
